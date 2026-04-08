@@ -47,19 +47,14 @@ public class PHCreativeTabRegistry {
 
                     }
                 }
-                enabledFeatures.holders().lookup(Registries.ENCHANTMENT).ifPresent(reg -> {
-                    try {
-                        for (Field f : ModEnchantments.class.getDeclaredFields()) {
-                            Object obj = null;
-                            obj = f.get(null);
-                            if (obj instanceof ResourceKey key) {
-                                addEnchantmentBook(reg.get(key), output);
-                            }
-
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                enabledFeatures.holders().lookup(Registries.ENCHANTMENT).ifPresent(enchantmentRegistry -> {
+                    enchantmentRegistry.listElements()
+                            .filter(holder -> holder.key().location().getNamespace().equals(PetHomeMod.MODID))
+                            .forEach(holder -> {
+                                output.accept(EnchantedBookItem.createForEnchantment(
+                                        new EnchantmentInstance(holder, holder.value().getMaxLevel())
+                                ));
+                            });
                 });
 
 //                try {

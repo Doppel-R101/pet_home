@@ -52,8 +52,8 @@ public class PetshopStructurePoolElement extends LegacySinglePoolElement {
         return petshopStructurePoolElementInstance.group(templateCodec(), processorsCodec(), projectionCodec(), overrideLiquidSettingsCodec()).apply(petshopStructurePoolElementInstance, PetshopStructurePoolElement::new);
     });
 
-    protected PetshopStructurePoolElement(Either<ResourceLocation, StructureTemplate> either, Holder<StructureProcessorList> p_210349_, StructureTemplatePool.Projection p_210350_, Optional<LiquidSettings> liquidSettings) {
-        super(either, p_210349_, p_210350_, liquidSettings);
+    protected PetshopStructurePoolElement(Either<ResourceLocation, StructureTemplate> either, Holder<StructureProcessorList> structureProcessorListHolder, StructureTemplatePool.Projection projection, Optional<LiquidSettings> liquidSettings) {
+        super(either, structureProcessorListHolder, projection, liquidSettings);
     }
 
     public PetshopStructurePoolElement(ResourceLocation resourceLocation, Holder<StructureProcessorList> processors) {

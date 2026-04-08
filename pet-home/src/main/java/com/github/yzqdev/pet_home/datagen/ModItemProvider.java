@@ -23,6 +23,7 @@ public class ModItemProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+
         simpleItem(PHItemRegistry.COLLAR_TAG);
         simpleItem(PHItemRegistry.DEED_OF_OWNERSHIP);
         simpleItem(PHItemRegistry.DEFLECTION_SHIELD);

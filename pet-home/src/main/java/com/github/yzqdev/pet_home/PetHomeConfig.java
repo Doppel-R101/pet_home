@@ -132,7 +132,7 @@ public class PetHomeConfig {
         paralysisLootChance = PARALYSIS_LOOT_CHANCE.get();
         toughLootChance = TOUGH_LOOT_CHANCE.get();
         blazingProtectionLootChance = BLAZING_PROTECTION_LOOT_CHANCE.get();
-        // convert the list of strings into a set of items
+
         noProtectionEntity = (NO_PROTECTION_ENTITY.get()).stream().map((entityTypeName) -> BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.parse(entityTypeName))).collect(Collectors.toSet());
         otherShouldProtectionEntity = (OTHER_SHOULD_PROTECT_ENTITY.get()).stream().map((entityTypeName) -> BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.parse(entityTypeName))).collect(Collectors.toSet());
         playerCantHurtEntity = (PLAYER_CANT_HURT_ENTITY.get()).stream().map((entityTypeName) -> BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.parse(entityTypeName))).collect(Collectors.toSet());

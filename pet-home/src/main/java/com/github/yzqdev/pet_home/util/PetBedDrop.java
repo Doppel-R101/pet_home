@@ -6,9 +6,6 @@ public class PetBedDrop {
 
 
     public static boolean hasPetBedPos(EntityMaid maid) {
-
         return TameableUtils.isTamed(maid) && TameableUtils.getPetBedPos(maid) != null;
-
-
     }
 }

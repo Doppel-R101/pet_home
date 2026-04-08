@@ -12,7 +12,8 @@ import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 public class PetHomeModClient {
     public PetHomeModClient(IEventBus modEventBus, ModContainer modContainer) {
         ClientGameEvents.registerClientListeners(modEventBus);
-        modContainer.registerExtensionPoint(IConfigScreenFactory.class, (container, modListScreen) -> new ConfigurationScreen(container, modListScreen, ModConfigScreen::new));
+        modContainer.registerExtensionPoint(IConfigScreenFactory.class,
+                (container, modListScreen) -> new ConfigurationScreen(container, modListScreen, ModConfigScreen::new));
     }
 
 
