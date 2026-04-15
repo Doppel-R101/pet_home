@@ -90,7 +90,7 @@ public class RecallBallEntity extends Entity {
             this.setPos(this.getX(), level().getMinBuildHeight() + 1.2F, this.getZ());
         }
         if (this.entityData.get(OPENED) && openProgress >= 1F && !this.isFinished()) {
-            if (!level().isClientSide) {
+            if (!level().isClientSide()) {
                 EntityType<?> type = BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.parse(this.getContainedEntityType()));
                 if (type != null) {
                     Entity entity = type.create(level());

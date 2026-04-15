@@ -33,7 +33,7 @@ public class FeatherOnAStickItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         if (player.fishing != null && player.fishing.isAlive()) {
-            if (!level.isClientSide) {
+            if (!level.isClientSide()) {
                 int i = player.fishing.retrieve(itemstack);
                 itemstack.hurtAndBreak(i, player, EquipmentSlot.MAINHAND);
             }
@@ -43,7 +43,7 @@ public class FeatherOnAStickItem extends Item {
             level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.FISHING_BOBBER_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
             FeatherEntity featherEntity = new FeatherEntity(player, level);
             featherEntity.setOwner(player);
-            if (!level.isClientSide) {
+            if (!level.isClientSide()) {
                 level.addFreshEntity(featherEntity);
             }
             player.awardStat(Stats.ITEM_USED.get(this));

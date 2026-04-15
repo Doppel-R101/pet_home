@@ -255,7 +255,7 @@ public class TameableUtils {
 
     private static void sync(LivingEntity entity, CompoundTag tag) {
         CitadelEntityData.setCitadelTag(entity, tag);
-        if (!entity.level().isClientSide) {
+        if (!entity.level().isClientSide()) {
             PacketDistributor.sendToAllPlayers(new PropertiesMessage(ModConstants.entityDataTagUpdate, tag.copy(), entity.getId()));
 //            Citadel.sendMSGToAll(new PropertiesMessage("CitadelTagUpdate", tag, enchanted.getId()));
         } else {
@@ -481,7 +481,7 @@ public class TameableUtils {
     }
 
     public static void absorbExpOrbs(LivingEntity living) {
-        if (living.getHealth() < living.getMaxHealth() && !living.level().isClientSide) {
+        if (living.getHealth() < living.getMaxHealth() && !living.level().isClientSide()) {
             for (ExperienceOrb experienceorb : living.level().getEntitiesOfClass(ExperienceOrb.class, living.getBoundingBox().inflate(3D))) {
                 if (living.getHealth() >= living.getMaxHealth()) {
                     break;

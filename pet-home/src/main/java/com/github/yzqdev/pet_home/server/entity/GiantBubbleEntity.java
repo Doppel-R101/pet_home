@@ -56,7 +56,7 @@ public class GiantBubbleEntity extends Entity {
 
     private void pop() {
         this.playSound(PHSoundRegistry.GIANT_BUBBLE_POP.get(), 1.0F, 1.5F);
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             ((ServerLevel) this.level()).sendParticles(PHParticleRegistry.GIANT_POP.get(), this.getX(), this.getY() + this.getBbHeight() * 0.5F, this.getZ(), 1, 0, 0, 0, 0);
         }
         this.ejectPassengers();

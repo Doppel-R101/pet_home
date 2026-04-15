@@ -47,7 +47,7 @@ public class PetBedBlock extends BaseEntityBlock {
     }
 
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        if (TameableUtils.isTamed(entity) && !entity.getType().is(PHTagRegistry.REFUSES_PET_BEDS) && !level.isClientSide) {
+        if (TameableUtils.isTamed(entity) && !entity.getType().is(PHTagRegistry.REFUSES_PET_BEDS) && !level.isClientSide()) {
             if ((entity.tickCount + entity.getId()) % 10 == 0 && random.nextInt(6) == 0) {
                 TameableUtils.setPetBedPos((LivingEntity) entity, pos);
                 TameableUtils.setPetBedDimension((LivingEntity) entity, level.dimension().toString());

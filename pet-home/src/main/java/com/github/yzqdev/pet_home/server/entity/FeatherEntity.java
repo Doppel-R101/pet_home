@@ -61,7 +61,7 @@ public class FeatherEntity extends FishingHook {
     public void tick() {
         super.tick();
         this.setDeltaMovement(this.getDeltaMovement().multiply(0.8D, 0.8D, 0.8D));
-        if (this.onGround() && !level().isClientSide) {
+        if (this.onGround() && !level().isClientSide()) {
             if (!prevOnGround) {
                 closestPet = findClosestPetOf(this.getPlayerOwner());
             }

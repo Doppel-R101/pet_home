@@ -660,7 +660,7 @@ public class ServerProxy {
 
         if (entity instanceof Mob pet) {
             mobTick(event, pet);
-            if (TameableUtils.hasEnchant(pet, ModEnchantments.BLAZING_PROTECTION) && !event.getEntity().level().isClientSide) {
+            if (TameableUtils.hasEnchant(pet, ModEnchantments.BLAZING_PROTECTION) && !event.getEntity().level().isClientSide()) {
                 int bars = TameableUtils.getBlazingProtectionBars(pet);
                 if (bars < 2 * TameableUtils.getEnchantLevel(pet, ModEnchantments.BLAZING_PROTECTION)) {
                     int cooldown = TameableUtils.getBlazingProtectionCooldown(pet);
@@ -706,7 +706,7 @@ public class ServerProxy {
                     ((ServerLevel) pet.level()).sendParticles(ParticleTypes.REVERSE_PORTAL, pet.getRandomX(1.5F), pet.getY() - pet.getRandom().nextFloat(), pet.getRandomZ(1.5F), 0, 0, -0.2F, 0, 1.0D);
                 }
             }
-            if (TameableUtils.hasEnchant(pet, ModEnchantments.IMMUNITY_FRAME) && !event.getEntity().level().isClientSide) {
+            if (TameableUtils.hasEnchant(pet, ModEnchantments.IMMUNITY_FRAME) && !event.getEntity().level().isClientSide()) {
                 int i = TameableUtils.getImmuneTime(pet);
                 if (i > 0) {
                     TameableUtils.setImmuneTime(pet, i - 1);
@@ -759,7 +759,7 @@ public class ServerProxy {
             int shadowHandsLevel = TameableUtils.getEnchantLevel(pet, ModEnchantments.SHADOW_HANDS);
             if (shadowHandsLevel > 0 && event.getEntity() instanceof Mob mob) {
                 ClientGameEvents.updateVisualDataForMob(event.getEntity(), TameableUtils.getShadowPunchTimes(mob));
-                if (!mob.level().isClientSide) {
+                if (!mob.level().isClientSide()) {
                     var targetEntity = TameableUtils.getPetAttackTarget(mob);
                     Entity punching = ((targetEntity instanceof Player) || (targetEntity instanceof TamableAnimal)) ? null : targetEntity;
                     int[] punchProgress = TameableUtils.getShadowPunchTimes(mob);
@@ -845,7 +845,7 @@ public class ServerProxy {
                     mob.setCanPickUpLoot(true);
                 }
             }
-            if (TameableUtils.hasEnchant(pet, ModEnchantments.HEALING_AURA) && !pet.level().isClientSide) {
+            if (TameableUtils.hasEnchant(pet, ModEnchantments.HEALING_AURA) && !pet.level().isClientSide()) {
                 int time = TameableUtils.getHealingAuraTime(pet);
                 if (time > 0) {
                     List<LivingEntity> hurtNearby = TameableUtils.getAuraHealables(pet);
@@ -870,7 +870,7 @@ public class ServerProxy {
                 TameableUtils.setHealingAuraTime(pet, time);
             }
             int psychicWallLevel = TameableUtils.getEnchantLevel(pet, ModEnchantments.PSYCHIC_WALL);
-            if (psychicWallLevel > 0 && event.getEntity() instanceof Mob mob && !event.getEntity().level().isClientSide) {
+            if (psychicWallLevel > 0 && event.getEntity() instanceof Mob mob && !event.getEntity().level().isClientSide()) {
                 int cooldown = TameableUtils.getPsychicWallCooldown(mob);
                 if (cooldown > 0) {
                     TameableUtils.setPsychicWallCooldown(mob, cooldown - 1);
@@ -918,7 +918,7 @@ public class ServerProxy {
             }
             if (TameableUtils.hasEnchant(pet, ModEnchantments.MAGNETIC) && event.getEntity() instanceof Mob mob) {
                 Entity sucking = TameableUtils.getPetAttackTarget(mob);
-                if (!mob.level().isClientSide) {
+                if (!mob.level().isClientSide()) {
                     if (mob.getTarget() == null || !mob.getTarget().isAlive() || mob.distanceTo(mob.getTarget()) < 0.5F + mob.getBbWidth() || mob.getRootVehicle() instanceof GiantBubbleEntity) {
                         if (TameableUtils.getPetAttackTargetID(mob) != -1) {
                             TameableUtils.setPetAttackTarget(mob, -1);

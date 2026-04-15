@@ -57,7 +57,7 @@ public class NetLauncherItem extends Item {
             if (f >= 0.1) {
 //获取包含实体的球
 
-                if (!worldIn.isClientSide) {
+                if (!worldIn.isClientSide()) {
 
                     if (isCaptureMode(stack)) {
                         ItemStack netStack = new ItemStack(PHItemRegistry.NET_ITEM.get());

@@ -204,7 +204,7 @@ public class PsychicWallEntity extends Entity {
 
 
     public Entity getCreator() {
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             UUID id = getCreatorId();
             if (id != null) {
                 return ((ServerLevel) level()).getEntity(id);
